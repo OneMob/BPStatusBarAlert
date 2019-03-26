@@ -9,7 +9,7 @@
 
 import UIKit
 
-public enum AlertPosition {
+@objc public enum AlertPosition: NSInteger {
     case statusBar
     case navigationBar
 }
@@ -42,11 +42,12 @@ public class BPStatusBarAlert: UIView {
     fileprivate let screenWidth = UIScreen.main.bounds.width
     fileprivate let screenHeight = UIScreen.main.bounds.height
     
-    public init(duration: TimeInterval = 0.3, delay: TimeInterval = 2) {
+    
+    @objc public init(duration: TimeInterval = 0.3, delay: TimeInterval = 2, position: AlertPosition = .statusBar ) {
         
         self.duration = duration
         self.delay = delay
-        self.position = .statusBar
+        self.position = position
         self.completion = nil
         
         super.init(frame: CGRect.zero)
@@ -95,27 +96,27 @@ extension BPStatusBarAlert {
 // MARK: chaning function and show / hide functions
 extension BPStatusBarAlert {
     
-    public func message(message: String) -> Self {
+    @objc public func message(message: String) -> Self {
         self.messageLable.text = message
         return self
     }
     
-    public func messageColor(color: UIColor) -> Self {
+    @objc public func messageColor(color: UIColor) -> Self {
         self.messageLable.textColor = color
         return self
     }
     
-    public func bgColor(color: UIColor) -> Self {
+    @objc public func bgColor(color: UIColor) -> Self {
         self.backgroundColor = color
         return self
     }
     
-    public func completion(_ completion: @escaping () -> Void) -> Self {
+    @objc public func completion(_ completion: @escaping () -> Void) -> Self {
         self.completion = completion
         return self
     }
     
-    public func show() {
+    @objc public func show() {
         adjustViewHierarchy(position: position)
         
         startAnimation {
