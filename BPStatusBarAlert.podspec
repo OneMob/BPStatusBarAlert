@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/ppth0608/BPStatusBarAlert.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.3'
   s.source_files = 'BPStatusBarAlert/Classes/**/*'
+  s.swift_version    = '4.2'
 end
