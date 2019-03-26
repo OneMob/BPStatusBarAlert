@@ -42,11 +42,11 @@ public class BPStatusBarAlert: UIView {
     fileprivate let screenWidth = UIScreen.main.bounds.width
     fileprivate let screenHeight = UIScreen.main.bounds.height
     
-    public init(duration: TimeInterval = 0.3, delay: TimeInterval = 2, position: AlertPosition = .statusBar) {
+    public init(duration: TimeInterval = 0.3, delay: TimeInterval = 2) {
         
         self.duration = duration
         self.delay = delay
-        self.position = position
+        self.position = .statusBar
         self.completion = nil
         
         super.init(frame: CGRect.zero)
